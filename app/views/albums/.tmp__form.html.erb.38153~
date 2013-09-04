@@ -1,0 +1,9 @@
+<%= form_for([@user, @user.albums.build]) do |f| %>
+  <p>
+    <%= f.label :album_name %><br />
+    <%= f.text_field :album_name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

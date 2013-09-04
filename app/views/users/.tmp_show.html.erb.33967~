@@ -1,0 +1,7 @@
+<p>
+  <strong>User Name:</strong>
+  <%= @user.user_name %>
+  <%debugger%>
+  
+</p>
+ 

@@ -1,0 +1,34 @@
+<p>
+  <strong>User Name:</strong>
+  <%= @user.user_name %>  
+</p>
+
+
+
+<h2>Albums</h2>
+
+<% @user.albums.each do |album| %>
+<p>
+  <strong>Album Name:</strong>
+  <%= album.album_name %>
+<p>
+
+<%= link_to 'show album', album_path(album) %> 
+<%= link_to 'Destroy Album', [album.user, album], method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%end%>
+ 
+<h2>Add a album:</h2>
+<%= form_for([@user, @user.albums.build]) do |f| %>
+  <p>
+    <%= f.label :album_name %><br />
+    <%= f.text_field :album_name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+ 

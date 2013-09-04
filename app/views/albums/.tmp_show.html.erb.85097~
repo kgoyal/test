@@ -1,0 +1,29 @@
+<p>
+ <strong>Album:</strong>
+ <%= @album.album_name %></br>
+</p>
+
+
+ <table>
+ <% @album.photos.each do |photo| %>
+   
+   <tr>
+   <td><%= image_tag photo.avatar.url(:thumb) %>
+   <% photo.tags.any? %>
+    <% photo.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name) %></td>
+
+   </tr>
+
+   
+<% end %>
+ <% end %>
+ </table>
+<h2>Add Photos</h2>
+ <%= form_for [@album,@album.photos.build], :html => { :multipart => true } do |f| %>
+   <p><%= f.file_field :avatar  %></p>
+   <%= f.label :tags %>
+   <%= f.text_field :tag_list %>
+   <p><%= f.submit %></p>
+ <% end %>
+ <%= link_to 'Back', users_path %>

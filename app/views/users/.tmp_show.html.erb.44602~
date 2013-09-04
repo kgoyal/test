@@ -1,0 +1,14 @@
+<p>
+  <strong>User Name:</strong>
+  <%= @user.user_name %>  
+</p>
+
+<h2>Albums</h2>
+<%= render @user.albums %>
+ 
+<h2>Add a album:</h2>
+<%= render "albums/form" %>
+
+<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+ 
