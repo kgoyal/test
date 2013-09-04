@@ -1,4 +1,6 @@
 Pg::Application.routes.draw do
+  resources :comments
+
   resources :users do
     resources :albums do
       resources :photos  
