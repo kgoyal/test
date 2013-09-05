@@ -6,6 +6,13 @@ Pg::Application.routes.draw do
       resources :photos  
    end
  end
+ 
+ 
+    resources :users do
+      resources :albums  
+   end
+   
+   
      resources :albums do
       resources :photos  
    end

@@ -22,10 +22,12 @@ test: &TEST
   password: root
 
 production:
+  host: 127.0.0.1
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: project_test2
   pool: 5
   username: c2s
   password: root
+  timeout: 5000
 
