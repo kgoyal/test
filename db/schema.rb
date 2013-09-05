@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20130904111329) do
     t.datetime "updated_at"
   end
 
-  add_index "albums", ["user_id"], name: "index_albums_on_user_id"
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.string   "name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20130904111329) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "photos", ["album_id"], name: "index_photos_on_album_id"
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20130904111329) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: true do |t|
     t.string "name"
